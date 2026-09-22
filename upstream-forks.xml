@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  第三方 external/ 移植仓（树内源码线）
+
+  ffmpeg（KonstaKANG 系，ffmpeg 8.0 全源码 Soong 化）：
+  上游 dvab-sarma/android_external_ffmpeg 的 Operit fork，现居组织仓
+  ApertureLatticework/android_external_ffmpeg（承载分支 lineage-23.2，
+  用户 2026-09-22 手动接位；dabao1955 个人 fork 为中转历史，保留重定向），
+  钉 commit e6285e170c227068d366297418fff26108850261（2026-09-22）。
+  fork 定制内容（相对上游 5dbfbaa）：
+    1. 根 Android.bp 两处 vendor: true → false
+       （库落 system 分区，priv-app 才可链接；vendor 库对 system 应用是 Treble 违规）
+    2. 补 libavfilter/Android.bp 与 libavdevice/Android.bp（源集策对齐 libavcodec：
+       root .c + aarch64，x86/.asm 不收；上游缺失，缺则 -vf/filter_complex 全废）
+    3. 新增 libffmpeg_cli 模块：fftools 十四文件，-Dmain=ffmpeg_cli_main 改名入口，
+       链全套 libav*（包内 liboperit_ffmpeg JNI 经它跑命令；ffprobe/ffplay 不收，
+       probe 走 avformat 直读）
+    4. config.h/config_components.h 已随上游 check-in（核对过）
+  链接性核查记录：上游无 -fvisibility=hidden（shared 全导出，fftools 可直链）；
+  fftools 无 avpriv_ 实际调用（仅注释一处）。
+  若日后转移到 ApertureLatticework 组织名下，改本条 name 即可（重定向会保住旧 clone）。
+-->
+<manifest>
+    <remote name="porters" fetch="https://github.com/" />
+
+    <project path="external/ffmpeg"
+             name="ApertureLatticework/android_external_ffmpeg"
+             revision="e6285e170c227068d366297418fff26108850261"
+             remote="porters" />
+</manifest>
