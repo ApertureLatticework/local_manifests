@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ApertureLatticework 组织仓库 local_manifest（LOS 23.2 树）
+  放置于 .repo/local_manifests/ 后 repo sync 生效。
+
+  备注：
+  - operit 仓旧名 android_packages_app_operit(单数) 已改名复数，GitHub 旧 URL 靠重定向兼容；
+    本地 git remote 建议同步更新为新地址
+  - system_extras_su：LOS 官方 system/extras 为整树仓且禁止 path 嵌套，故落位
+    vendor/aperture/ 下由 PRODUCT_PACKAGES 引用模块（Soong 模块与目录无关），
+    勿改回 system/extras/su
+  - 暂不入树（条件成熟后再加回）：
+      FuckLOS（XPosed 模块，非树内组件）
+      android_external_w3m（尚无 Android.bp）
+      android_external_noscreenshotlib
+      android_kernel_SummerPockets_core（自用补丁集）
+      android_vendor_lineage_KingSun（空仓）
+-->
+<manifest>
+    <remote name="aperture" fetch="https://github.com/ApertureLatticework/" />
+
+    <!-- 应用 -->
+    <project path="packages/apps/Operit"          name="android_packages_apps_operit"       revision="lineage-23.2" remote="aperture" />
+    <project path="packages/apps/OOSHACK"         name="android_packages_apps_OOSHACK"      revision="main"        remote="aperture" />
+    <project path="packages/apps/PandoraChecker"  name="android_packages_apps_PandoraChecker" revision="lineage-22.2" remote="aperture" />
+    <project path="packages/apps/SSUChecker"      name="android_packages_apps_SSUChecker"   revision="main"        remote="aperture" />
+    <project path="packages/apps/qingbai"         name="android_packages_apps_qingbai"      revision="lineage-22.2" remote="aperture" />
+
+    <!-- external -->
+    <project path="external/libseccomp"      name="android_external_libseccomp"      revision="main" remote="aperture" />
+    <project path="external/ruri"            name="android_external_ruri"            revision="main" remote="aperture" />
+
+    <!-- 硬件 / vendor -->
+    <project path="hardware/oplus"                   name="android_hardware_oplus"      revision="staging/lineage-23.2" remote="aperture" />
+    <project path="vendor/aperture/system_extras_su" name="android_system_extras_su"   revision="lineage-23.2"         remote="aperture" />
+</manifest>
