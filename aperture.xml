@@ -21,9 +21,9 @@
 
     <!-- 应用 -->
     <project path="packages/apps/Operit"          name="android_packages_apps_operit"       revision="lineage-23.2" remote="aperture" />
-    <project path="packages/apps/OOSHACK"         name="android_packages_apps_OOSHACK"      revision="main"        remote="aperture" />
+    <!-- project path="packages/apps/OOSHACK"         name="android_packages_apps_OOSHACK"      revision="main"        remote="aperture" /-->
     <project path="packages/apps/PandoraChecker"  name="android_packages_apps_PandoraChecker" revision="lineage-22.2" remote="aperture" />
-    <project path="packages/apps/SSUChecker"      name="android_packages_apps_SSUChecker"   revision="main"        remote="aperture" />
+    <!-- project path="packages/apps/SSUChecker"      name="android_packages_apps_SSUChecker"   revision="main"        remote="aperture" /-->
     <project path="packages/apps/qingbai"         name="android_packages_apps_qingbai"      revision="lineage-22.2" remote="aperture" />
 
     <!-- external -->
