@@ -6,7 +6,7 @@
   上游 dvab-sarma/android_external_ffmpeg 的 Operit fork，现居组织仓
   ApertureLatticework/android_external_ffmpeg（承载分支 lineage-23.2，
   用户 2026-09-22 手动接位；dabao1955 个人 fork 为中转历史，保留重定向），
-  钉 commit e6285e170c227068d366297418fff26108850261（2026-09-22）。
+  钉 commit 7b7f4a3a5840268615d843dae707fd86706c5dcc（定制 4，2026-09-22 全绿战报态；e6285e1 只含定制 1，libavutil 仍依赖 libudev，会挡 Soong 解析）。
   fork 定制内容（相对上游 5dbfbaa）：
     1. 根 Android.bp 两处 vendor: true → false
        （库落 system 分区，priv-app 才可链接；vendor 库对 system 应用是 Treble 违规）
@@ -25,6 +25,6 @@
 
     <project path="external/ffmpeg"
              name="ApertureLatticework/android_external_ffmpeg"
-             revision="e6285e170c227068d366297418fff26108850261"
+             revision="7b7f4a3a5840268615d843dae707fd86706c5dcc"
              remote="porters" />
 </manifest>
