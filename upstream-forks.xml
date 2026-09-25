@@ -7,6 +7,11 @@
   ApertureLatticework/android_external_ffmpeg（承载分支 lineage-23.2，
   用户 2026-09-22 手动接位；dabao1955 个人 fork 为中转历史，保留重定向），
   钉 commit 7b7f4a3a5840268615d843dae707fd86706c5dcc（定制 4，2026-09-22 全绿战报态；e6285e1 只含定制 1，libavutil 仍依赖 libudev，会挡 Soong 解析）。
+
+  ripgrep vendored 依赖仓（Operit rg 内容搜索 JNI 桥的树内源码线，2026-09-25）：
+  globset/grep-*/ignore + regex 断代三件（aho-corasick 1.1.4 / regex-syntax 0.8.11 /
+  regex-automata 0.4.14），借树 jni 0.21.1 与 serde 系。挂 path 避让 AOSP 自有
+  external/ripgrep。仓现名 anrdoird_external_ripgrep 为建仓手误，改名后同步本条 name。
   fork 定制内容（相对上游 5dbfbaa）：
     1. 根 Android.bp 两处 vendor: true → false
        （库落 system 分区，priv-app 才可链接；vendor 库对 system 应用是 Treble 违规）
@@ -26,5 +31,10 @@
     <project path="external/ffmpeg"
              name="ApertureLatticework/android_external_ffmpeg"
              revision="7b7f4a3a5840268615d843dae707fd86706c5dcc"
+             remote="porters" />
+
+    <project path="external/operit-ripgrep"
+             name="ApertureLatticework/anrdoird_external_ripgrep"
+             revision="lineage-23.2"
              remote="porters" />
 </manifest>
