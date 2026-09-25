@@ -11,7 +11,8 @@
   ripgrep vendored 依赖仓（Operit rg 内容搜索 JNI 桥的树内源码线，2026-09-25）：
   globset/grep-*/ignore + regex 断代三件（aho-corasick 1.1.4 / regex-syntax 0.8.11 /
   regex-automata 0.4.14），借树 jni 0.21.1 与 serde 系。挂 path 避让 AOSP 自有
-  external/ripgrep。仓现名 anrdoird_external_ripgrep 为建仓手误，改名后同步本条 name。
+  AOSP 树内并无 ripgrep 仓（此前「避让」说法有误，实查 3130 仓零命中），
+  该 path 空闲可用。仓现名 anrdoird_external_ripgrep 为建仓手误，改名后同步本条 name。
   fork 定制内容（相对上游 5dbfbaa）：
     1. 根 Android.bp 两处 vendor: true → false
        （库落 system 分区，priv-app 才可链接；vendor 库对 system 应用是 Treble 违规）
